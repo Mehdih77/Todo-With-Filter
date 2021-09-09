@@ -24,6 +24,7 @@ export default function Footer() {
         setCompleteAll(false);
     }
 
+    // get the amount of remain todos
     const remainTodo = () => {
         return todos.filter(todo => todo.complete === false)
     }

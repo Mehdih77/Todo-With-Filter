@@ -1,4 +1,3 @@
-import './App.css';
 import Footer from './components/Footer';
 import FormInput from './components/FormInput';
 import List from './components/List';

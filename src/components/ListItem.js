@@ -22,7 +22,7 @@ export default function ListItem({todo, id,checkComplete,handleEditTodo}) {
         <>
         {editing ? 
             <li>
-                    <input type="text"
+                <input type="text"
                     name='editValue'
                     id={id}
                     value={editValue}
@@ -32,7 +32,7 @@ export default function ListItem({todo, id,checkComplete,handleEditTodo}) {
             </li> 
         :
             <li>
-                 <label htmlFor={id} className={todo.complete ? "active" : ""}>
+                <label htmlFor={id} className={todo.complete ? "active" : ""}>
                     <input type="checkbox" 
                     checked={todo.complete} 
                     id={id}
