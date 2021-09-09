@@ -1,20 +1,31 @@
+import {useTodoContext} from "../context/TodoProvider";
+import ListItem from "./ListItem";
+
 export default function List() {
+
+    const [todos,setTodos] = useTodoContext();
+
+    // for checking complete, true OR false
+    const checkComplete = (id) => {
+        const newTodos = [...todos];
+        newTodos.forEach(todo => {
+            if (todo.id === id) {
+                todo.complete = !todo.complete
+            }
+        });
+        setTodos(newTodos);
+    }
+
+
     return (
         <ul>
-            <li>
-                <label htmlFor="">
-                    <input type="checkbox" id="" />
-                    Cooking to Do
-                </label>
-                <button>Edit</button>
-            </li>
-            <li>
-                <label htmlFor="">
-                    <input type="checkbox" id="" />
-                    Cooking to Do
-                </label>
-                <button>Edit</button>
-            </li>
+            {todos.map(todo => (
+                <ListItem 
+                    todo={todo} 
+                    id={todo.id}
+                    key={todo.id} 
+                    checkComplete={checkComplete}
+            />))}
         </ul>
     )
 }
