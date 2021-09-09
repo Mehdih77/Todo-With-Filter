@@ -16,6 +16,16 @@ export default function List() {
         setTodos(newTodos);
     }
 
+    // for updating todo
+    const handleEditTodo = (id, editedValue) => {
+        const newTodos = [...todos];
+        newTodos.forEach(todo => {
+            if (todo.id === id) {
+                todo.name = editedValue
+            }
+        })
+        setTodos(newTodos);
+    }
 
     return (
         <ul>
@@ -25,6 +35,7 @@ export default function List() {
                     id={todo.id}
                     key={todo.id} 
                     checkComplete={checkComplete}
+                    handleEditTodo={handleEditTodo}
             />))}
         </ul>
     )
